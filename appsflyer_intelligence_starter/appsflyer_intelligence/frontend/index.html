@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AppsFlyer Intelligence</title>
+<link rel="stylesheet" href="/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div id="authView" class="auth-wrap">
+  <div class="auth-card">
+    <div class="brand"><span class="brand-mark">A</span><div><b>AppsFlyer</b><small>INTELLIGENCE</small></div></div>
+    <h1 id="authTitle">Welcome back</h1><p class="muted">Your marketing performance, clearly explained.</p>
+    <form id="authForm">
+      <label>Email</label><input id="email" type="email" placeholder="you@company.com" required>
+      <label>Password</label><input id="password" type="password" placeholder="At least 8 characters" required minlength="8">
+      <button class="primary full" id="authSubmit">Log in</button>
+    </form>
+    <p id="authError" class="error"></p>
+    <p class="switch-auth"><span id="switchText">New to the platform?</span> <button id="switchAuth" class="link-btn">Create account</button></p>
+  </div>
+</div>
+<div id="appView" class="app-shell hidden">
+  <aside class="sidebar">
+    <div class="brand side-brand"><span class="brand-mark">A</span><div><b>AppsFlyer</b><small>INTELLIGENCE</small></div></div>
+    <div class="side-label">WORKSPACE</div>
+    <button class="nav active" data-page="overview">▦ <span>Overview</span></button>
+    <button class="nav" data-page="sources">◉ <span>Media sources</span></button>
+    <button class="nav" data-page="campaigns">▤ <span>Campaigns</span></button>
+    <button class="nav" data-page="events">✳ <span>Events</span></button>
+    <button class="nav" data-page="data">⇧ <span>Data management</span></button>
+    <div class="sidebar-bottom"><div class="avatar">AI</div><div class="account"><b id="userEmail">Account</b><small>Analyst workspace</small></div><button id="logoutBtn" title="Log out">↗</button></div>
+  </aside>
+  <main class="main">
+    <header class="topbar"><div><span class="eyebrow">MARKETING INTELLIGENCE</span><h2 id="pageTitle">Overview dashboard</h2></div><div class="top-actions"><select id="datasetSelect"><option value="">All datasets</option></select><button id="refreshBtn" class="secondary">↻ Refresh</button></div></header>
+    <div id="notice" class="notice hidden"></div>
+    <section id="overviewPage" class="page">
+      <div class="welcome-row"><div><h3>Performance overview</h3><p class="muted">A live view of the data in your uploaded reports.</p></div><button class="primary" id="uploadShortcut">＋ Upload report</button></div>
+      <div id="emptyState" class="empty-card hidden"><div class="empty-icon">⇧</div><h3>Bring your marketing data to life</h3><p>Upload an AppsFlyer CSV or Excel report to calculate KPIs and explore campaign performance.</p><button class="primary" id="emptyUpload">Upload your first report</button><p><a href="/api/demo.csv">Download sample CSV</a> to try the dashboard.</p></div>
+      <div id="dashboardContent">
+        <div class="kpi-grid" id="kpiGrid"></div>
+        <div class="chart-grid">
+          <div class="panel wide"><div class="panel-head"><div><h3>Spend & revenue</h3><p class="muted">Daily trend, based on available columns</p></div><span class="pill">DAILY</span></div><canvas id="trendChart"></canvas></div>
+          <div class="panel"><div class="panel-head"><div><h3>Spend by media source</h3><p class="muted">Top sources by spend</p></div></div><canvas id="sourceChart"></canvas></div>
+        </div>
+        <div class="panel"><div class="panel-head"><div><h3>Top campaigns</h3><p class="muted">Sorted by spend</p></div><button class="secondary" data-page="campaigns">View all</button></div><div class="table-wrap"><table><thead><tr><th>Campaign</th><th>Spend</th><th>Installs</th><th>CPI</th><th>Revenue</th><th>ROAS</th></tr></thead><tbody id="campaignRows"></tbody></table></div></div>
+        <div class="panel quality-panel"><div class="panel-head"><div><h3>Data quality</h3><p class="muted">Checks on the selected dataset</p></div></div><div id="qualityText" class="quality-items"></div></div>
+      </div>
+    </section>
+    <section id="sourcesPage" class="page hidden"><div class="panel"><div class="panel-head"><div><h3>Media source analysis</h3><p class="muted">Compare source efficiency using available metrics.</p></div></div><div class="table-wrap"><table><thead><tr><th>Media source</th><th>Spend</th><th>Installs</th><th>CPI</th><th>Conversions</th><th>Revenue</th><th>ROAS</th></tr></thead><tbody id="sourceRows"></tbody></table></div></div></section>
+    <section id="campaignsPage" class="page hidden"><div class="panel"><div class="panel-head"><div><h3>Campaign explorer</h3><p class="muted">Campaign results from your imported reports.</p></div><input id="campaignSearch" class="search" placeholder="Search campaigns…"></div><div class="table-wrap"><table><thead><tr><th>Campaign</th><th>Spend</th><th>Installs</th><th>Clicks</th><th>CPA</th><th>Revenue</th><th>ROAS</th></tr></thead><tbody id="campaignAllRows"></tbody></table></div></div></section>
+    <section id="eventsPage" class="page hidden"><div class="panel"><div class="panel-head"><div><h3>Event analysis</h3><p class="muted">Event names are taken from your uploaded report. Payable status is not assumed.</p></div></div><div class="callout">This starter version displays events when your file includes an event-name column. Configure business rules before treating any event as payable.</div><div class="table-wrap"><table><thead><tr><th>Event</th><th>Spend</th><th>Conversions</th><th>Revenue</th><th>Rows</th></tr></thead><tbody id="eventRows"></tbody></table></div></div></section>
+    <section id="dataPage" class="page hidden"><div class="upload-layout"><div class="panel upload-panel"><div class="panel-head"><div><h3>Upload reports</h3><p class="muted">Import CSV, XLSX, or XLS files</p></div></div><div id="dropZone" class="drop-zone"><div class="upload-symbol">⇧</div><b>Drop your report here</b><span class="muted">or select a file from your computer</span><input id="fileInput" type="file" accept=".csv,.xlsx,.xls" multiple><button id="chooseFile" class="secondary">Choose files</button><small>Maximum file size: 20 MB per file</small></div><div id="uploadStatus"></div></div><div class="panel"><div class="panel-head"><div><h3>Import history</h3><p class="muted">Your uploaded datasets</p></div></div><div id="datasetList" class="dataset-list"></div></div></div></section>
+    <footer>AppsFlyer Intelligence <span>Starter build · metrics depend on report columns</span></footer>
+  </main>
+</div>
+<script src="/app.js"></script>
+</body></html>

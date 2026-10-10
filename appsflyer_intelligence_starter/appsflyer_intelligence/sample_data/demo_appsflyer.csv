@@ -1,0 +1,21 @@
+date,media_source,channel,campaign,country,platform,installs,clicks,impressions,spend,conversions,revenue,event_name,event_count
+2026-10-01,Meta Ads,Paid Social,Autumn Install,Albania,Android,120,900,18000,96,24,180,purchase,24
+2026-10-01,Google Ads,Paid Search,Brand Search,Albania,Android,90,600,12000,110,20,220,subscribe,20
+2026-10-02,Meta Ads,Paid Social,Autumn Install,Italy,iOS,145,1050,22000,125,31,260,purchase,31
+2026-10-02,TikTok Ads,Paid Social,Video Test,Kosovo,Android,70,700,16000,65,9,48,registration,9
+2026-10-03,Google Ads,Paid Search,Brand Search,Italy,iOS,115,760,14000,128,27,310,purchase,27
+2026-10-03,Meta Ads,Paid Social,Retargeting,Albania,Android,80,480,9000,74,26,245,subscribe,26
+2026-10-04,TikTok Ads,Paid Social,Video Test,Albania,Android,95,920,21000,82,12,75,registration,12
+2026-10-04,Google Ads,Paid Search,Generic Search,Kosovo,iOS,60,410,8000,89,11,135,purchase,11
+2026-10-05,Meta Ads,Paid Social,Retargeting,Italy,iOS,105,650,13000,88,34,390,purchase,34
+2026-10-05,Apple Search Ads,Paid Search,App Discovery,Albania,iOS,130,780,11000,102,29,280,registration,29
+2026-10-06,Google Ads,Paid Search,Generic Search,Albania,Android,75,530,10000,91,16,155,purchase,16
+2026-10-06,TikTok Ads,Paid Social,Video Test,Italy,iOS,110,1000,24000,99,17,130,registration,17
+2026-10-07,Apple Search Ads,Paid Search,App Discovery,Italy,iOS,150,920,15000,115,42,450,purchase,42
+2026-10-07,Meta Ads,Paid Social,Autumn Install,Kosovo,Android,125,870,19000,105,28,230,subscribe,28
+2026-10-08,Google Ads,Paid Search,Brand Search,Kosovo,Android,100,690,13000,117,24,270,purchase,24
+2026-10-08,Meta Ads,Paid Social,Retargeting,Albania,iOS,92,580,11500,80,30,330,purchase,30
+2026-10-09,TikTok Ads,Paid Social,Video Test,Kosovo,Android,85,810,17000,77,13,95,registration,13
+2026-10-09,Apple Search Ads,Paid Search,App Discovery,Albania,iOS,140,860,14000,108,38,405,purchase,38
+2026-10-10,Google Ads,Paid Search,Generic Search,Italy,iOS,95,640,12000,104,21,240,purchase,21
+2026-10-10,Meta Ads,Paid Social,Autumn Install,Albania,Android,135,980,20500,112,33,305,subscribe,33
